@@ -1,0 +1,41 @@
+  {% extends "layout.html" %}
+  {% block content %}
+  <link rel="stylesheet" href="static/css/bootstrap.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> 
+  <div class="jumbo">
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Tips On Tips-Daily</h3>
+      </div>
+      <hr/>
+      {%- for category, message in get_flashed_messages(with_categories=true) %}
+      <div class="alert alert-danger">
+        {{ message }}
+      </div>
+      {%- endfor %}
+
+      <form class="form-horizontal" action="{{ request.path }}" method="post">
+        <div class="form-group">
+          <label for="name" class="col-lg-2 control-label">Topic</label>
+          <div class="col-lg-2">
+            <input type="text" class="form-control" name="name" placeholder="Topic">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tip" class="col-lg-2 control-label">Tip</label>
+          <div class="col-lg-2">
+            <textarea class="form-control" name="tip" placeholder="Tip"></textarea>
+          </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-offset-2 col-lg-2">
+            <input type="submit" class="btn btn-primary" value="Submit">
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+  {% endblock %}
+

@@ -1,0 +1,39 @@
+    {% extends "layout.html" %}
+  {% block content %}
+  <link rel="stylesheet" href="static/css/bootstrap.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> 
+  <div class="jumbo">
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted"><a href="{{ url_for('show_all') }}">Tips-Daily</a></h3>
+      </div>
+      <hr/>
+      {%- for category, message in get_flashed_messages(with_categories=true) %}
+      <div class="alert alert-success">
+        {{ message }}
+      </div>
+      {%- endfor %}
+
+      <h3>Tips (<a href="{{ url_for('new') }}">Add Tip</a>)</h3>
+      <table class="table">
+  <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Tip</th>
+            <th>Date</th>
+          </tr>
+	</thead>
+	<tbody>
+          {% for tip in tips %}
+          <tr>
+            <td>{{ tip.name }}</td>
+            <td>{{ tip.tip }}</td>
+            <td>{{ tip.pub_date.strftime("%H:%M:%S %d/%m/%Y") }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+ {% endblock %}

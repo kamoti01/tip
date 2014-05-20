@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Tips-Daily</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">;
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    </head>
+    <body>
+        <header>
+      <div class="container">
+        <h1 class="logo">Tips-Daily</h1>
+            <strong><nav>
+      <ul class="menu">
+        <button class="btn btn-primary"><li><a href="{{ url_for('home') }}">Home</a></li></button>
+        <button class="btn btn-primary"><li><a href="{{ url_for('about') }}">About</a></li></button>
+        <button class="btn btn-primary"><li><a href="{{ url_for('show_all') }}">Tips</a></li></button>
+        <button class="btn btn-primary"><li><a href="{{ url_for('new') }}">Add Tip</a></li></button>
+
+      </ul>
+    </nav></strong>
+      </div>
+    </header>
+     
+    <div class="container">
+        {% block content %}{% endblock %}
+        </div>
+
+      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    </body>
+</html>
