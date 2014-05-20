@@ -12,6 +12,7 @@ app= Flask(__name__)
 app.secret_key = 'luther college'
 app.config.from_pyfile('app.cfg')
 db = SQLAlchemy(app) 
+Bootstrap(app)
 
 class Tips(db.Model):
   # Setting the table name and
