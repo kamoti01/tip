@@ -17,7 +17,7 @@ defer==1.0.6
 dirspec==13.10
 distribute==0.6.37
 duplicity==0.6.21
-httplib2==0.8
+httplib2==0.18.0
 ipython==0.13.2
 lxml==3.2.0
 matplotlib==1.2.1
